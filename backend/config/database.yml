@@ -13,6 +13,8 @@ development:
 test:
   <<: *default
   database: expense_system_test
+  username: root
+  password: rootpassword
 
 production:
   <<: *default
