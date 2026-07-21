@@ -7,6 +7,7 @@ USE expense_system_development;
 CREATE TABLE IF NOT EXISTS categories (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL UNIQUE,
+  emoji VARCHAR(10) DEFAULT '📦',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   INDEX idx_name (name)
@@ -27,12 +28,12 @@ CREATE TABLE IF NOT EXISTS expenses (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Seed categories
-INSERT INTO categories (name) VALUES
-  ('Food'),
-  ('Transport'),
-  ('Supplies'),
-  ('Entertainment'),
-  ('Utilities')
+INSERT INTO categories (name, emoji) VALUES
+  ('Food', '🍔'),
+  ('Transport', '🚗'),
+  ('Supplies', '🛍️'),
+  ('Entertainment', '🎬'),
+  ('Utilities', '📄')
 ON DUPLICATE KEY UPDATE name=name;
 
 -- Seed expenses
