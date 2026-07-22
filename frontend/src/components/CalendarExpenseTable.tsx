@@ -5,7 +5,6 @@
 import React, { useState } from "react";
 import { Expense, ExpenseFormData } from "../types";
 import { formatCurrency, formatDate } from "../utils/expenseUtils";
-import { getCategoryEmoji } from "../constants/categoryEmojis";
 import { COLORS } from "../constants/colors";
 import { Button, Modal, Pagination } from "../vibes";
 import { ExpenseForm } from "./ExpenseForm.tsx";
@@ -142,7 +141,7 @@ export function CalendarExpenseTable({
                     gap: "0.5rem",
                   }}
                 >
-                  <span>{getCategoryEmoji(expense.category)}</span>
+                  <span>{expense.category_emoji}</span>
                   <span>{expense.category}</span>
                 </span>
               </td>
