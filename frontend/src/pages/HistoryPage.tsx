@@ -87,13 +87,13 @@ const HistoryPage: React.FC = () => {
     (acc, expense) => {
       const category = expense.category || "Uncategorized";
       if (!acc[category]) {
-        acc[category] = { category, amount: 0, count: 0 };
+        acc[category] = { category, emoji: expense.category_emoji || "📦", amount: 0, count: 0 };
       }
       acc[category].amount += Number(expense.amount);
       acc[category].count += 1;
       return acc;
     },
-    {} as Record<string, { category: string; amount: number; count: number }>,
+    {} as Record<string, { category: string; emoji: string; amount: number; count: number }>,
   );
 
   const categories = Object.values(categoryData).sort(

@@ -49,6 +49,7 @@ const CategoriesPage: React.FC = () => {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    textAlign: "center",
     gap: "12px",
     boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
     transition: "all 0.2s",
@@ -104,7 +105,7 @@ const CategoriesPage: React.FC = () => {
       {isLoading ? (
         <div style={gridStyle}>
           {Array.from({length: 6}).map((_, idx) => (
-            <div key={i} style={skeletonCardStyle}>
+            <div key={idx} style={skeletonCardStyle}>
               <div style={skeletonEmojiStyle} />
               <div style={skeletonTextStyle} />
             </div>
@@ -116,7 +117,7 @@ const CategoriesPage: React.FC = () => {
             <div
               key={cat.id}
               style={cardStyle}
-              onMouseEvent={(e) => {
+              onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.12)";
               }}

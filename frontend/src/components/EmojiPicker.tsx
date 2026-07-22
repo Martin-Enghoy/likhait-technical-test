@@ -37,10 +37,10 @@ export function EmojiPicker({ selectedEmoji, onSelect }: EmojiPickerProps) {
     transition: "all 0.15s ease",
   });
   
-  const labelStyle: React.CSSProperties => ({
+  const labelStyle: React.CSSProperties = ({
     fontSize: '0.875rem',
     fontWeight: 600,
-    colors: COLORS.text.primary,
+    color: COLORS.text.primary,
     marginBottom: "8px",
   });
   
@@ -52,7 +52,7 @@ export function EmojiPicker({ selectedEmoji, onSelect }: EmojiPickerProps) {
           <button
             key={emoji}
             type="button"
-            style={emojiButtonStyle}
+            style={emojiButtonStyle(emoji)}
             onClick={() => onSelect(emoji)}
             onMouseEnter={(e) => {
               if (selectedEmoji !== emoji) {
